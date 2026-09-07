@@ -1,0 +1,29 @@
+seed: 42
+data:
+  processed_path: data/processed/demo_hourly.csv
+  lookback: 48
+  horizon: 12
+  train_ratio: 0.70
+  val_ratio: 0.15
+  target: global_active_power
+  features: [global_active_power, global_reactive_power, voltage, global_intensity, sub_metering_1, sub_metering_2, sub_metering_3, hour_sin, hour_cos, dow_sin, dow_cos, month_sin, month_cos]
+model:
+  d_model: 16
+  nhead: 2
+  num_layers: 1
+  dim_feedforward: 32
+  dropout: 0.10
+training:
+  batch_size: 32
+  epochs: 2
+  learning_rate: 0.001
+  weight_decay: 0.0001
+  patience: 2
+  num_workers: 0
+xgboost:
+  n_estimators: 10
+  max_depth: 3
+  learning_rate: 0.1
+  subsample: 0.9
+  colsample_bytree: 0.9
+
